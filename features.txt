@@ -9,3 +9,4 @@ Add Queue support
 upside down name (lowprio)
 ZACK BOT (joins VC randomly if we're in and says gongaga)
 "ER" message gif send
+Send gifs via tenor

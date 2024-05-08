@@ -105,7 +105,7 @@ async def stop(interaction: discord.Interaction):
     else:
         await interaction.response.send_message(content='The bot is not playing audio at the moment')
 
-@client.tree.commands(name='pause', description="Pause the current song")
+@client.tree.command(name='pause', description="Pause the current song")
 async def pause(interaction: discord.Interaction):
     voice_client = interaction.guide.voice_client
 
@@ -115,11 +115,33 @@ async def pause(interaction: discord.Interaction):
     else:
         await interaction.response.send_message(content="There is nothing currently playing")
 
+@client.tree.command(name='resume', description="Resumes playback of current song")
+async def resume(interaction: discord.Interaction):
+    voice_client = interaction.guide.voice_client
 
+    if voice_client.is_paused():
+        await interaction.response.send_message(content="Resuming playback")
+        await voice_client.resume()
+    else:
+        await interaction.response.send_message(content="The bot was not playing anything before this or is not paused. Use /play <url> to play something")
+
+'''
+@client.tree.command(name='stop', description='Stops playing the current song')
+async def stop(interaction: discord.Interaction):
+    voice_client = interaction.guide.voice_client
+
+    if voice_client.is_playing():
+        await interaction.resopnse.send_message(content="Stopping playback")
+        await voice_client.stop()
+    else:
+        await interaction.response.send_message("The bot is not currently playing anything. Use /play <url> to play something")
+''' 
 @client.event
 async def on_message_delete(message):
-    await message.channel.send(message.author.mention + " What are you hiding?")
-
+    await message.channel.send(message.author.mention + " Deleting messages?")
+    #embed = discord.Embed()
+    #embed.set_image(url='https://tenor.com/view/dies-from-cringe-meme-cringe-imagine-gif-23477312')
+    await message.channel.send('https://tenor.com/view/dies-from-cringe-meme-cringe-imagine-gif-23477312')
 
 
 @client.command()
