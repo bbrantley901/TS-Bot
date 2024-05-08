@@ -1,0 +1,11 @@
+Current Features:
+Audio playback via YT
+    - Play, Stop commands
+
+Todo:
+Add pause command to Audio playback
+Add Spotify support
+Add Queue support 
+upside down name (lowprio)
+ZACK BOT (joins VC randomly if we're in and says gongaga)
+"ER" message gif send
